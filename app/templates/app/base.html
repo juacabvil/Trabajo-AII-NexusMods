@@ -1,0 +1,46 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang='es'>
+  <head>
+	<meta charset='utf-8'>
+		<link rel="stylesheet" href="{% static 'css/uikit.min.css' %}" />
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/uikit.min.js' %}"></script>
+  </head>
+  <body>
+  
+
+	<h1>TRABAJO FINAL - NEXUS MODS</h1>
+    <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">
+
+        <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="#">Inicio</a>
+            <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="/populate">Poblar Base de Datos - Acceso Restringido</a></li>
+                        
+                    </ul>
+                </div>
+            </li>
+           <li><a href="#">Búsquedas</a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+						<li><a href="/recomendar_peliculas_usuarios">Recomendar></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+	    
+
+		<hr>
+ 		
+ 		<h1 >{% block titulo %} {% endblock %}</h1>
+
+		{% block contenido %} {% endblock %}
+  </body>
+</html>
