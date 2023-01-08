@@ -3,8 +3,8 @@ from django.db import models
 
 class Game(models.Model):
     name = models.CharField(max_length=255)
-    mods = models.IntegerField()
-    downloads = models.IntegerField()
+    mods = models.FloatField()
+    downloads = models.FloatField()
 
 class Mod(models.Model):
     name = models.CharField(max_length=255)
