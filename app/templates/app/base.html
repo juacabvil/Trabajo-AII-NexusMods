@@ -3,25 +3,35 @@
 <!DOCTYPE html>
 <html lang='es'>
   <head>
+    <title>Nexus Mods</title>
 	<meta charset='utf-8'>
 		<link rel="stylesheet" href="{% static 'css/uikit.min.css' %}" />
         <script src="{% static 'js/jquery.min.js' %}"></script>
         <script src="{% static 'js/uikit.min.js' %}"></script>
   </head>
+  <style>
+    .header {
+        padding: 60px;
+        text-align: center;
+        background: #1abc9c;
+        color: white;
+        font-size: 30px;
+      }
+}
+   </style>
   <body>
   
 
-	<h1>TRABAJO FINAL - NEXUS MODS</h1>
+	<a href="/index/" > <h1 class="header">TRABAJO FINAL - NEXUS MODS</h1></a>
     <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
 
         <ul class="uk-navbar-nav">
 
-            <li class="uk-active"><a href="#">Inicio</a>
+            <li class="uk-active"><a href="/index/">Inicio</a>
             <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                         <li><a href="/cargar">Poblar Base de Datos - Acceso Restringido</a></li>
-                        
                     </ul>
                 </div>
             </li>
@@ -29,7 +39,13 @@
             <li><a href="#">Listar</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-						<li><a href="/listar_juegos">Listar Juegos></li>
+						<li><a href="/juegos">Listar Juegos</a></li>
+                    </ul>
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+						<li><a href="/mods">Listar Mods</a></li>
+                    </ul>
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+						<li><a href="/colections">Listar Colecciones</a></li>
                     </ul>
                 </div>
             </li>
@@ -37,7 +53,8 @@
            <li><a href="#">Búsquedas</a>
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
-						<li><a href="/recomendar_peliculas_usuarios">Recomendar></li>
+						<li><a href="/buscarMod">Búsqueda de Top5 Mod basada en descripción</a></li>
+                        <li><a href="/buscarCol">Búsqueda de Top5 Colecciones basada en nombre</a></li>
                     </ul>
                 </div>
             </li>
@@ -49,7 +66,7 @@
 
 		<hr>
  		
- 		<h1 >{% block titulo %} {% endblock %}</h1>
+ 		<h3 >{% block titulo %} {% endblock %}</h3>
 
 		{% block contenido %} {% endblock %}
   </body>

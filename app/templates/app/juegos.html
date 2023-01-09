@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+
+
+{% block encabezado %}
+<h1> Listado de Juegos </h1>
+{% endblock %}
+
+{% block contenido %}
+	<dl class="uk-description-list ">
+		{% for dato in datos %}
+	  	<dt>
+	  		<a href='{{dato.id}}'>{{dato.name}}</a><br>
+	    </dt>
+		{% endfor %}
+	</dl>
+{% endblock %}

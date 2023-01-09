@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+
+{% block titulo %}
+<h1 class="uk-heading-bullet"> Detalles de: {{juego.name}}</h1>
+{% endblock %}
+
+{% block contenido %}
+<style>
+
+ dt{
+    margin-left:60px
+    }   
+ dd{margin-left:70px
+    }  
+</style>
+<dl class="uk-description-list uk-description-list-divider">
+    <dt><h2>Número de mods</h2></dt>	
+    <dd>{{juego.mods}}</dd>
+    
+    
+    <dt><h2>Número de Descargas</h2></dt>
+    <dd>{{juego.downloads}}</dd>
+    
+</dl>
+{% endblock %}
+

@@ -1,0 +1,144 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mod list</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <style>
+    * {
+        font-family: "Roboto", Arial;
+    }
+    .main {
+        max-width: fit-content(20em);
+        margin: 0 auto;
+        text-align: center;
+        
+        
+    }
+    .table-grid {
+        display: grid;
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        margin-bottom: 1rem;
+        text-align: center;
+        
+        
+    }
+
+    .table-grid > span {
+        padding: 8px 4px;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        padding: 20px;
+        
+    }
+    a {
+        text-decoration: none;
+        color: #009FD2;
+    }
+    a:hover {
+        text-decoration: underline;
+        color: #0082AC;
+    }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; FIRST</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">PREVIOUS</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">NEXT</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">LAST &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+        <div class="table-grid">
+            <span>
+                <strong>Nombre</strong>
+            </span>
+            <span>
+                <strong>Última actualización</strong>
+            </span>
+            <span>
+                <strong>Autor</strong>
+            </span>
+            <span>
+                <strong>Descripción</strong>
+            </span>
+            <span>
+                <strong>Likes</strong>
+            </span>
+            <span>
+                <strong>Categoría</strong>
+            </span>
+            <span>
+                <strong>Juego</strong>
+            </span>
+
+        {% for mod in mods %}
+            <span>
+                {{mod.name}}
+            </span>
+
+            <span>
+                {{mod.last_update}}
+            </span>
+
+            <span>
+                {{mod.uploader}}
+            </span>
+
+            <span>
+                {{mod.description}}
+            </span>
+
+            <span>
+                {{mod.likes}}
+            </span>
+
+            <span>
+                {{mod.category}}
+            </span>
+
+            <span>
+                <a href='/juegos/{{mod.game.id}}'>{{mod.game.name}}</a>
+            </span>
+            
+        {% endfor %}
+        </div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; FIRST</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">PREVIOUS</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">NEXT</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">LAST &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}

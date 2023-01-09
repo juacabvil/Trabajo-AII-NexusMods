@@ -20,6 +20,17 @@ from app import populateDB
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('cargar/', views.cargarIndex, name='cargar'),
+    path('index/', views.index, name='index'),
+    path('cargar/', views.cargarDatos, name='cargar'),
+    path('ingresar/', views.ingresar), 
+    path('juegos/',views.lista_juegos),
+    path('juegos/<int:id_game>', views.detalle_juego),
+    path('mods/', view=views.lista_mods.as_view()),
+    path('colections/', view=views.lista_colecciones.as_view()),
+    path('loadindex/',views.crearIndex),
+    path('buscarMod/',views.get_mod),
+    path('buscarCol/',views.get_col),
+
+
 ]
 
